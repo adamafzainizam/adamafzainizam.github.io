@@ -28,6 +28,14 @@ But the direction of the numbers was more interesting. Across five different mea
 
 None of these gaps were big enough to prove anything with 46 pairs. Still, they all pointed the same way. The vibe-coded repos weren't sloppier. If anything, they trended toward smaller, simpler, better-commented functions.
 
+![Head-to-head win rate per metric](/assets/chart_winrate.png)
+
+![Median values per metric, AI-assisted vs traditional](/assets/chart_medians.png)
+
+![All p-values at a glance](/assets/chart_pvalues.png)
+
+![How the sample was built](/assets/card_sample.png)
+
 ## Honest caveats
 
 First, this is a pilot. 46 pairs is enough to see shapes, not enough to claim findings.
@@ -38,9 +46,15 @@ Third, these measurements don't check whether code is correct. A repo can look s
 
 Fourth, matching wasn't perfect. I only kept repos with proper open-source licenses, which eliminated 40% of my first batch and forced some awkward substitutions.
 
+![Where repos dropped out of the sample](/assets/chart_attrition.png)
+
+## Method in one picture
+
+![The pipeline from GitHub search to paired statistics](/assets/chart_method.png)
+
 ## What's next
 
-The plan from here: expand the sample, add checks that actually test whether the code works, and write it all up properly. Every script, every raw number, and the exact recipe for building the sample is public in the repo. Future posts in this series will go deeper on the methodology — including why 40% of my first batch got filtered out by license checks alone.
+The plan from here: expand the sample, add checks that actually test whether the code works, and write it all up properly. Every script, every raw number, and the exact recipe for building the sample is public in the repo: [github.com/adamafzainizam/vibe-code-quality-study](https://github.com/adamafzainizam/vibe-code-quality-study). Future posts in this series will go deeper on the methodology — including why 40% of my first batch got filtered out by license checks alone.
 
 *This post is part of an ongoing series on vibe-coding and code quality. Updates will appear on this blog.*
 
