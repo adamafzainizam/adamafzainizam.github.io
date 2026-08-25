@@ -6,7 +6,7 @@ date: 2026-08-25
 
 **TLDR:** I compared 46 pairs of Python repos on GitHub, half written with AI tools and half written traditionally, matched by size, age, and popularity. I measured them with code-quality tools while not knowing which was which. Result: no measurable difference. The vibe-coded repos actually leaned slightly simpler and better-commented. Details and caveats below.
 
-I ran a small study to find out whether "vibe-coded" repos are worse code. After comparing 46 pairs of GitHub projects, the honest answer is: I couldn't tell them apart.
+I ran a small study to find out whether "vibe-coded" repos are worse code. After comparing 46 pairs of GitHub projects, the honest answer is that I couldn't tell them apart.
 
 ## The setup
 
@@ -24,7 +24,7 @@ But the direction of the numbers was more interesting. Across five different mea
 - Lower average function complexity
 - Shorter functions
 - Fewer documentation mistakes per 1,000 lines
-- And a higher share of comments in the code
+- A higher share of comments in the code
 
 None of these gaps were big enough to prove anything with 46 pairs. Still, they all pointed the same way. The vibe-coded repos weren't sloppier. If anything, they trended toward smaller, simpler, better-commented functions.
 
@@ -54,7 +54,7 @@ Fourth, matching wasn't perfect. I only kept repos with proper open-source licen
 
 ## What's next
 
-The plan from here: expand the sample, add checks that actually test whether the code works, and write it all up properly. Every script, every raw number, and the exact recipe for building the sample is public in the repo: [github.com/adamafzainizam/vibe-code-quality-study](https://github.com/adamafzainizam/vibe-code-quality-study). Future posts in this series will go deeper on the methodology — including why 40% of my first batch got filtered out by license checks alone.
+The plan from here: expand the sample, add checks that actually test whether the code works, and write it all up properly. Every script, every raw number, and the exact recipe for building the sample is public at [github.com/adamafzainizam/vibe-code-quality-study](https://github.com/adamafzainizam/vibe-code-quality-study). Future posts in this series will go deeper on the methodology, including why 40% of my first batch got filtered out by license checks alone.
 
 *This post is part of an ongoing series on vibe-coding and code quality. Updates will appear on this blog.*
 
