@@ -6,256 +6,352 @@
   <title>Adam Afzainizam | Software engineering student</title>
   <meta name="description" content="Adam Afzainizam is a software engineering diploma student in Malaysia. Full-stack web apps with Next.js, TypeScript and Postgres, with the decisions written down.">
   <link rel="canonical" href="https://adamafzainizam.github.io/">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#06080d">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Adam Afzainizam">
   <meta property="og:description" content="Full-stack web apps, built to be correct. Software engineering diploma student in Malaysia.">
   <meta property="og:url" content="https://adamafzainizam.github.io/">
   <meta property="og:image" content="https://adamafzainizam.github.io/assets/site/draftdrill.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171a'/%3E%3Crect x='8' y='8' width='16' height='16' fill='none' stroke='%23f4f5f6' stroke-width='2'/%3E%3C/svg%3E">
-  <link rel="preload" href="/assets/site/fonts/ibm-plex-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/site/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306080d'/%3E%3Cpath d='M16 3l4 13-4 13-4-13z' fill='%23dfe7f5'/%3E%3Cpath d='M3 16l13-3 13 3-13 3z' fill='%23ff3d5a'/%3E%3C/svg%3E">
   <script>document.documentElement.classList.add("js");</script>
   <style>
-    /* Fonts: IBM Plex Sans and Plex Mono, SIL Open Font License (see assets/site/fonts/OFL.txt). */
-    @font-face { font-family: "Plex Sans"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); }
-    @font-face { font-family: "Plex Sans"; font-weight: 600; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); }
-    @font-face { font-family: "Plex Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
-    @font-face { font-family: "Plex Mono"; font-weight: 500; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+    /* Type: Helvetica everywhere (Helvetica Neue, then Arial or a metric match where Helvetica is not installed). */
 
-    /* One palette, one accent, one corner rule (square). Light and dark follow the system. */
+    /* Dark denim, chrome, one blood-red accent. Square corners everywhere. The page is dark by design. */
     :root {
-      color-scheme: light dark;
-      --bg: #f4f5f6;
-      --surface: #ffffff;
-      --ink: #15171a;
-      --ink-2: #454b53;
-      --line: #d5d9de;
-      --accent: #1d4ed8;
-      --on-accent: #ffffff;
-      --chrome: rgb(244 245 246 / 0.78);
+      color-scheme: dark;
+      --bg: #06080d;
+      --denim: #0d1729;
+      --denim-2: #14213a;
+      --ink: #e9edf5;
+      --ink-2: #9aa5ba;
+      --line: rgb(150 178 226 / 0.2);
+      --accent: #ff3d5a;
+      --on-accent: #0a0709;
+      --chrome-grad: linear-gradient(180deg, #ffffff 0%, #d5deee 34%, #7889a8 49%, #e4ebf7 52%, #ffffff 68%, #9db0cf 100%);
+      --chrome-edge: linear-gradient(135deg, #ffffff, #7e90b0 28%, #e6edf8 50%, #6d7f9f 74%, #ffffff);
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --sans: "Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --mono: "Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+      --sans: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans", "Liberation Sans", sans-serif;
+      --mono: var(--sans);
+      --display: var(--sans);
+      --pixel: var(--sans);
+      --denim-weave: repeating-linear-gradient(45deg, rgb(130 160 215 / 0.06) 0 1px, transparent 1px 4px), repeating-linear-gradient(-45deg, rgb(130 160 215 / 0.04) 0 1px, transparent 1px 4px);
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #101214;
-        --surface: #16191c;
-        --ink: #eceef0;
-        --ink-2: #a6acb4;
-        --line: #2b3035;
-        --accent: #8fb0ff;
-        --on-accent: #0b0d10;
-        --chrome: rgb(16 18 20 / 0.78);
-      }
-    }
-    @media (prefers-contrast: more) {
-      :root { --line: var(--ink-2); --chrome: var(--bg); }
-      .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: var(--ink-2); }
-    }
+    @media (prefers-contrast: more) { :root { --line: #9aa5ba; } }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 5rem; -webkit-text-size-adjust: 100%; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; -webkit-text-size-adjust: 100%; background: var(--bg); }
     body {
-      margin: 0;
-      background: var(--bg);
+      margin: 0; min-height: 100vh;
       color: var(--ink);
-      font: 400 1rem/1.6 var(--sans);
-      -webkit-font-smoothing: antialiased;
+      font: 400 1rem/1.6 var(--sans); -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    img { display: block; max-width: 100%; height: auto; }
+    /* Braille-dot field: drawn by script, drifts with scroll, swells toward the cursor. */
+    #field { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; }
+    /* Pixel overlay: faint scanlines over everything. */
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none;
+      background: repeating-linear-gradient(0deg, rgb(0 0 0 / 0.22) 0 1px, transparent 1px 3px);
+      opacity: 0.3;
+    }
+    img, canvas { display: block; max-width: 100%; height: auto; }
     a { color: inherit; }
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    ::selection { background: var(--accent); color: var(--on-accent); }
 
-    .wrap { width: 100%; max-width: 70rem; margin: 0 auto; padding: 0 1.5rem; }
-    @media (max-width: 40rem) { .wrap { padding: 0 1rem; } }
+    /* Fill the screen: fluid gutters, and a cap only on very wide monitors. */
+    .wrap { width: 100%; max-width: 112rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 4.5rem); }
 
-    h1, h2, h3 { font-family: var(--sans); font-weight: 600; margin: 0; }
-    h1 { font-size: clamp(2.25rem, 4.6vw, 3.5rem); line-height: 1.04; letter-spacing: -0.03em; }
-    h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.1; letter-spacing: -0.02em; }
-    h3 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.012em; }
+    h1, h2, h3 { margin: 0; font-weight: 600; }
+    h2 { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.6vw, 3.5rem); line-height: 1; letter-spacing: -0.045em; text-transform: lowercase; }
+    h3 { font-family: var(--sans); font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.012em; }
     p { margin: 0; }
-    .lede { color: var(--ink-2); font-size: 1.125rem; line-height: 1.55; max-width: 36ch; }
-    .body { color: var(--ink-2); max-width: 62ch; }
+    .body { color: var(--ink-2); max-width: 68ch; }
 
-    /* Header: translucent layer over the content, one line at every width. */
+    /* Chrome lettering: a bright-dark-bright metal gradient clipped to the glyphs. */
+    .chrome { color: #dfe7f5; }
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .chrome { background: var(--chrome-grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+    }
+    @media (forced-colors: active) { .chrome { background: none; color: CanvasText; -webkit-text-fill-color: currentColor; } }
+
+    .tag { font-family: var(--pixel); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.08em; color: var(--ink-2); text-transform: lowercase; }
+    .tag b { color: var(--accent); font-weight: 500; }
+
+    /* Header */
     .site-header {
       position: sticky; top: 0; z-index: 10;
-      background: var(--chrome);
-      -webkit-backdrop-filter: blur(18px) saturate(160%);
-      backdrop-filter: blur(18px) saturate(160%);
-      border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+      background: rgb(6 8 13 / 0.72);
+      -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+      border-bottom: 1px solid var(--line);
     }
-    @media (prefers-reduced-transparency: reduce) {
+    @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
       .site-header { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
     }
     .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
-    .brand { font-weight: 600; letter-spacing: -0.01em; text-decoration: none; }
+    .brand { font-family: var(--pixel); font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; text-transform: lowercase; }
+    .brand svg { width: 1rem; height: 1rem; fill: var(--accent); }
     .nav { display: flex; align-items: center; gap: 1.75rem; }
-    .nav a { text-decoration: none; color: var(--ink-2); font-size: 0.9375rem; transition: color 0.2s var(--ease); }
+    .nav a { font-family: var(--pixel); font-weight: 500; font-size: 0.9375rem; text-decoration: none; color: var(--ink-2); text-transform: lowercase; transition: color 0.2s var(--ease); }
     .nav a:hover { color: var(--ink); }
-    .nav .nav-cta { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+    .nav .nav-cta { color: var(--ink); border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
     @media (max-width: 40rem) { .nav a:not(.nav-cta) { display: none; } }
 
-    /* Buttons */
+    /* Buttons: red fill with a lit top edge, or a chrome outline. */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
-      min-height: 2.75rem; padding: 0 1.375rem;
-      font: 600 0.9375rem/1 var(--sans); white-space: nowrap; text-decoration: none;
-      border: 1px solid var(--ink); border-radius: 0; cursor: pointer;
-      transition: transform 0.12s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease);
+      min-height: 2.75rem; padding: 0 1.5rem;
+      font: 700 0.9375rem/1 var(--pixel); letter-spacing: 0; text-transform: lowercase; white-space: nowrap; text-decoration: none;
+      border: 1px solid transparent; border-radius: 0; cursor: pointer;
+      transition: transform 0.12s var(--ease), filter 0.2s var(--ease), background-position 0.5s var(--ease);
     }
-    .btn:active { transform: scale(0.98); }
-    .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-    .btn-primary:hover { filter: brightness(1.08); }
-    .btn-quiet { background: transparent; color: var(--ink); }
-    .btn-quiet:hover { background: var(--ink); color: var(--bg); }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), 0 0 0 1px rgb(255 61 90 / 0.35), 0 8px 28px -10px rgb(255 61 90 / 0.7); }
+    .btn-primary:hover { filter: brightness(1.12); }
+    .btn-quiet { color: var(--ink); background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--chrome-edge) border-box; background-size: auto, 200% 200%; background-position: 0 0, 0% 50%; }
+    .btn-quiet:hover { background-position: 0 0, 100% 50%; }
 
-    .link { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.3em; transition: text-underline-offset 0.2s var(--ease); }
-    .link:hover { text-underline-offset: 0.45em; }
+    .link { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.3em; transition: text-underline-offset 0.2s var(--ease), color 0.2s; }
+    .link:hover { text-underline-offset: 0.45em; color: #fff; }
 
-    /* Hero */
-    .hero { padding: 4.5rem 0 5.5rem; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3.5rem; align-items: center; }
-    .hero-copy { display: grid; gap: 1.5rem; justify-items: start; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
-    .frame { border: 1px solid var(--line); background: var(--surface); }
+    /* Window frame: chrome bevel, denim body. */
+    .win { background: var(--chrome-edge); padding: 1px; }
+    .win-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.6rem; background: linear-gradient(180deg, #2a3a5c, #131f38); font-family: var(--pixel); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.02em; color: #e4ebf7; text-transform: lowercase; }
+    .win-bar i { width: 9px; height: 9px; background: #9db0cf; display: block; }
+    .win-bar i:nth-child(2) { background: #6d7f9f; }
+    .win-bar i:nth-child(3) { background: var(--accent); }
+    .win-bar span { margin-left: auto; margin-right: auto; }
+    .win-body { position: relative; background-color: var(--denim); background-image: var(--denim-weave); }
+    .win-body img { width: 100%; }
+    .win-body canvas.px { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
     figure { margin: 0; }
     figcaption { margin-top: 0.75rem; color: var(--ink-2); font-size: 0.875rem; letter-spacing: 0.01em; max-width: 56ch; }
+
+    /* Hero */
+    .hero { padding: 3rem 0 4rem; position: relative; }
+    .hero-status { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-bottom: 1.25rem; }
+    h1.name { font-family: var(--display); font-weight: 700; font-size: clamp(3rem, 10.5vw, 11rem); line-height: 0.88; letter-spacing: -0.065em; text-transform: lowercase; padding-bottom: 0.08em; }
+    .hero .wrap { position: relative; }
+    /* Cybersigilism pieces: line-art PNGs used as masks over the chrome gradient. */
+    .sig { pointer-events: none; background: linear-gradient(180deg, #ffffff, #c4d0e8 55%, #f4f7fd); filter: drop-shadow(0 0 5px rgb(157 182 230 / 0.35)); -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+    .sig-s3bh { --src: url("/assets/site/sig-s3b-h.png"); aspect-ratio: 705 / 192; }
+    .sig-s2a { --src: url("/assets/site/sig-s2a.png"); aspect-ratio: 283 / 900; }
+    .sig-s3a { --src: url("/assets/site/sig-s3a.png"); aspect-ratio: 287 / 716; }
+    .sig-s2l { --src: url("/assets/site/sig-s2b-l.png"); aspect-ratio: 543 / 818; }
+    .sig-s2r { --src: url("/assets/site/sig-s2b-rh.png"); aspect-ratio: 900 / 314; }
+    /* Sigils sit in grid cells of their own, so nothing ever covers them. */
+    .sig { position: static; flex: none; height: var(--h, 14rem); max-height: 100%; }
+    .hero-top { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; }
+    .sig-hero { width: min(84%, 46rem); height: auto; justify-self: center; align-self: center; }
+    .head-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; margin-bottom: 2.75rem; }
+    .head-row .section-head { margin-bottom: 0; }
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(2rem, 5vw, 6rem); align-items: start; }
+    .sig-writing { --h: 22rem; margin-top: 0.5rem; }
+    .sig-about { --h: 22rem; margin-bottom: calc(-1 * (22rem - 14.5rem)); }
+    .sig-contact { --h: 24rem; }
+    .sig-gap { height: auto; width: clamp(18rem, 44vw, 52rem); }
+    .gap-row { margin-top: -2rem; margin-bottom: -2rem; position: relative; z-index: 1; }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(2rem, 5vw, 6rem); align-items: start; }
     @media (max-width: 56rem) {
-      .hero { padding: 2.5rem 0 3.5rem; }
+      .head-row, .split, .contact-grid, .about { grid-template-columns: minmax(0, 1fr); }
+      .sig:not(.sig-hero) { --h: 9rem !important; justify-self: start; }
+      .hero-top { grid-template-columns: minmax(0, 1fr); }
+      .sig-hero { width: min(100%, 22rem); --h: auto; justify-self: start; margin-top: 1.5rem; }
+    }
+    .hero-grid { margin-top: 2rem; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(2rem, 4vw, 5rem); align-items: start; }
+    .hero-copy { display: grid; gap: 1.75rem; justify-items: start; }
+    .lede { font-size: clamp(1.25rem, 1.7vw, 1.75rem); line-height: 1.45; color: var(--ink); max-width: 30ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    @media (max-width: 56rem) {
+      .hero { padding: 2rem 0 3rem; }
       .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
+
+    /* Ticker */
+    .ticker { overflow: hidden; border-block: 1px solid var(--line); background: rgb(13 23 41 / 0.55); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .ticker-track { display: flex; width: max-content; }
+    .ticker ul { display: flex; gap: 2.25rem; margin: 0; padding: 0.8rem 1.125rem 0.8rem 0; list-style: none; font-family: var(--pixel); font-weight: 700; font-size: 0.9375rem; color: var(--ink-2); text-transform: lowercase; white-space: nowrap; }
+    .ticker li::after { content: "+"; margin-left: 2.25rem; color: var(--accent); }
 
     /* Sections */
     section { padding: 5.5rem 0; }
     @media (max-width: 40rem) { section { padding: 3.5rem 0; } }
-    .section-title { margin-bottom: 2.5rem; }
-    .rule-top { border-top: 1px solid var(--line); }
+    .section-head { display: grid; gap: 0.6rem; margin-bottom: 2.75rem; }
 
-    /* Work: one feature across the full width, then an asymmetric pair. */
-    .feature { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: center; }
+    /* Work */
+    .feature { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(2rem, 4vw, 5rem); align-items: center; }
     .feature-copy { display: grid; gap: 1.25rem; justify-items: start; }
-    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2rem; margin: 0.5rem 0; padding: 1.25rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); width: 100%; }
-    .facts dt { color: var(--ink-2); font-size: 0.875rem; }
-    .facts dd { margin: 0; font: 500 1.75rem/1.1 var(--mono); letter-spacing: -0.02em; }
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2rem; margin: 0.5rem 0; padding: 1.25rem 0; border-block: 1px solid var(--line); width: 100%; }
+    .facts dt { color: var(--ink-2); font-size: 0.875rem; letter-spacing: 0.01em; }
+    .facts dd { margin: 0; font: 700 1.875rem/1.1 var(--display); letter-spacing: -0.04em; }
     .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; }
     .note { color: var(--ink-2); font-size: 0.875rem; letter-spacing: 0.01em; max-width: 52ch; }
 
-    .pair { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; margin-top: 5rem; align-items: start; }
+    .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 5rem); margin-top: 5rem; align-items: start; }
     .pair article { display: grid; gap: 1.25rem; justify-items: start; align-content: start; }
-    .pair .frame { width: 100%; }
+    .pair .win { width: 100%; }
     .pair .shot { aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; width: 100%; }
-    .stack-line { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.01em; color: var(--ink-2); line-height: 1.7; }
+    .stack-line { font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.01em; color: var(--ink-2); line-height: 1.7; }
+    @media (hover: hover) {
+      .card .win-body img { filter: grayscale(0.55) contrast(1.05) brightness(0.9); transition: filter 0.5s var(--ease), transform 0.6s var(--ease); }
+      .card:hover .win-body img { filter: none; }
+    }
+    .card .win-body::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 1px 1px, rgb(6 8 13 / 0.3) 0.7px, transparent 1.1px) 0 0 / 5px 5px; transition: opacity 0.5s var(--ease); }
+    .card:hover .win-body::after { opacity: 0; }
     @media (max-width: 56rem) {
       .feature, .pair { grid-template-columns: 1fr; gap: 2.5rem; }
       .pair { margin-top: 3.5rem; }
     }
 
     /* Writing */
-    .post { display: grid; gap: 0.75rem; max-width: 46rem; }
+    .post { display: grid; gap: 0.75rem; max-width: none; padding: 1.75rem clamp(1.25rem, 3vw, 3rem); background-color: var(--denim); background-image: var(--denim-weave); border: 1px solid var(--line); }
     .post a.title { font-size: 1.375rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.012em; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
-    .post time { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.01em; color: var(--ink-2); }
+    .post time { font-family: var(--pixel); font-weight: 500; font-size: 0.875rem; color: var(--ink-2); }
 
     /* About */
-    .about { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 4rem; align-items: start; }
-    .about-copy { display: grid; gap: 1.25rem; }
-    .stack { display: grid; gap: 1.5rem; margin: 0; }
-    .stack div { display: grid; gap: 0.375rem; }
-    .stack dt { font-weight: 600; }
+    .about { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr) auto; gap: clamp(2rem, 4vw, 5rem); align-items: start; }
+    .about-copy { display: grid; gap: 1.25rem; font-size: 1.0625rem; }
+    .about-copy .body { color: var(--ink); }
+    .about-more { display: grid; gap: 1rem; margin-top: 0.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    .stack { display: grid; gap: 0; margin: 0; border: 1px solid var(--line); background-color: var(--denim); background-image: var(--denim-weave); }
+    .stack div { display: grid; gap: 0.375rem; padding: 1.1rem 1.25rem; }
+    .stack div + div { border-top: 1px solid var(--line); }
+    .stack dt { font-family: var(--pixel); font-weight: 700; font-size: 1rem; color: var(--accent); text-transform: lowercase; }
     .stack dd { margin: 0; color: var(--ink-2); }
-    .stack div + div { padding-top: 1.5rem; border-top: 1px solid var(--line); }
     @media (max-width: 56rem) { .about { grid-template-columns: 1fr; gap: 2.5rem; } }
 
     /* Contact */
     .contact { display: grid; gap: 1.5rem; justify-items: start; }
-    .email { font-size: clamp(1.375rem, 3.4vw, 2.25rem); font-weight: 600; letter-spacing: -0.02em; word-break: break-word; }
+    .email { font-family: var(--display); font-weight: 700; font-size: clamp(1.1rem, 5vw, 4.5rem); letter-spacing: -0.05em; word-break: break-word; text-decoration: none; text-transform: lowercase; }
+    .email:hover { filter: brightness(1.15); }
     .contact-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
 
-    footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 0.875rem; }
+    footer { padding: 2.5rem 0 3.5rem; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 0.875rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; align-items: center; justify-content: space-between; }
+    footer .tag { font-size: 0.9375rem; }
 
-    /* Motion: entry on the hero for hierarchy, reveal on scroll for reading order. */
+    /* Motion */
     @media (prefers-reduced-motion: no-preference) {
-      .hero-copy > *, .hero figure { opacity: 0; transform: translateY(14px); animation: rise 0.8s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+      .hero-status, h1.name, .hero-copy > *, .hero figure { opacity: 0; transform: translateY(14px); animation: rise 0.8s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
       @keyframes rise { to { opacity: 1; transform: none; } }
       .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
       .js .reveal.in { opacity: 1; transform: none; }
-      .frame img { transition: transform 0.6s var(--ease); }
-      a:hover > .frame img, .frame:hover img { transform: scale(1.012); }
-      .frame { overflow: hidden; }
+      .ticker-track { animation: scroll 38s linear infinite; }
+      @keyframes scroll { to { transform: translateX(-50%); } }
+      .ticker:hover .ticker-track { animation-play-state: paused; }
+      .sigil-hero { animation: glint 6s ease-in-out infinite; }
+      @keyframes glint { 50% { filter: drop-shadow(0 0 14px rgb(255 61 90 / 0.5)); } }
+      .win-body { overflow: hidden; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="chromeFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset="0.45" stop-color="#8697b5"/><stop offset="0.52" stop-color="#e6edf8"/><stop offset="1" stop-color="#9db0cf"/>
+      </linearGradient>
+      <symbol id="mark" viewBox="0 0 32 32"><path d="M16 2l4 14-4 14-4-14z"/><path d="M2 16l14-4 14 4-14 4z" opacity="0.6"/></symbol>
+    </defs>
+  </svg>
+
+  <canvas id="field" aria-hidden="true"></canvas>
+
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="#top">Adam Afzainizam</a>
+      <a class="brand" href="#top"><svg aria-hidden="true"><use href="#mark"/></svg>adam afzainizam</a>
       <nav class="nav" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#writing">Writing</a>
-        <a href="#about">About</a>
-        <a class="nav-cta" href="#contact">Get in touch</a>
+        <a href="#work">work</a>
+        <a href="#writing">writing</a>
+        <a href="#about">about</a>
+        <a class="nav-cta" href="#contact">get in touch</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <div class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <h1 style="--i:0">Web apps, built to be correct.</h1>
-          <p class="lede" style="--i:1">Software engineering diploma student in Malaysia. I build apps with real sign-in, databases and realtime, and I write down why.</p>
-          <div class="hero-actions" style="--i:2">
-            <a class="btn btn-primary" href="#work">See my work</a>
-            <a class="btn btn-quiet" href="#contact">Get in touch</a>
-          </div>
+      <div class="wrap">
+        <p class="hero-status tag" style="--i:0"><span>malaysia</span><span>gmt+8 <b id="clock">now</b></span><span>final-year diploma</span></p>
+        <div class="hero-top">
+          <h1 class="name chrome" style="--i:1">adam<br>afzainizam</h1>
+          <div class="sig sig-s3bh sig-hero" aria-hidden="true" style="--i:2"></div>
         </div>
-        <figure style="--i:3">
-          <div class="frame">
-            <img src="/assets/site/draftdrill.png" width="1280" height="720" alt="draftdrill telling a student that their drawing's views are placed in third-angle projection when the exercise asks for first-angle.">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="lede" style="--i:3">i build web apps with real logins, databases and live chat, then write down what broke.</p>
+            <div class="hero-actions" style="--i:4">
+              <a class="btn btn-primary" href="#work">see my work</a>
+              <a class="btn btn-quiet" href="#contact">get in touch</a>
+            </div>
           </div>
-          <figcaption>draftdrill marking a technical drawing and naming the mistake.</figcaption>
-        </figure>
+          <figure style="--i:5" data-pixel>
+            <div class="win">
+              <div class="win-bar"><i></i><i></i><i></i><span>draftdrill_marking.png</span></div>
+              <div class="win-body">
+                <img src="/assets/site/draftdrill.png" width="1280" height="720" alt="draftdrill telling a student that their drawing's views are placed in third-angle projection when the exercise asks for first-angle.">
+              </div>
+            </div>
+            <figcaption>draftdrill marking a technical drawing and naming the mistake.</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
 
-    <section id="work" class="rule-top">
-      <div class="wrap">
-        <h2 class="section-title reveal">Selected work</h2>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <ul><li>next.js</li><li>typescript</li><li>postgres</li><li>prisma</li><li>auth.js</li><li>tailwind</li><li>python</li><li>java</li><li>firebase</li></ul>
+        <ul><li>next.js</li><li>typescript</li><li>postgres</li><li>prisma</li><li>auth.js</li><li>tailwind</li><li>python</li><li>java</li><li>firebase</li></ul>
+      </div>
+    </div>
 
-        <article class="feature reveal">
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+            <p class="tag"><b>01</b> / work</p>
+            <h2 class="chrome">selected work</h2>
+          </div>
+
+        <article class="feature card reveal">
           <a href="https://draftdrill.vercel.app" aria-label="Open draftdrill, live site" tabindex="-1">
-            <div class="frame">
-              <img src="/assets/site/draftdrill-exercise.png" width="1280" height="800" loading="lazy" alt="A draftdrill exercise: an L-shaped block given as three views, with an isometric grid to draw it on.">
+            <div class="win">
+              <div class="win-bar"><i></i><i></i><i></i><span>draftdrill.app</span></div>
+              <div class="win-body">
+                <img src="/assets/site/draftdrill-exercise.png" width="1280" height="800" loading="lazy" alt="A draftdrill exercise: an L-shaped block given as three views, with an isometric grid to draw it on.">
+              </div>
             </div>
           </a>
           <div class="feature-copy">
             <h3>draftdrill</h3>
-            <p class="body">Practise technical drawing and get marked. You draw on a snapping grid and it tells you exactly which line is wrong, or that your views are right but laid out in the wrong projection convention.</p>
+            <p class="body">practise technical drawing and get marked. you draw on a snapping grid and it tells you exactly which line is wrong, or that your views are right but laid out in the wrong projection convention.</p>
             <dl class="facts">
-              <div><dt>Topics</dt><dd>5</dd></div>
-              <div><dt>Exercises</dt><dd>50</dd></div>
-              <div><dt>Languages</dt><dd>EN, BM</dd></div>
-              <div><dt>Tests</dt><dd>691</dd></div>
+              <div><dt>topics</dt><dd>5</dd></div>
+              <div><dt>exercises</dt><dd>50</dd></div>
+              <div><dt>languages</dt><dd>EN, BM</dd></div>
+              <div><dt>tests</dt><dd>691</dd></div>
             </dl>
             <div class="links">
-              <a class="btn btn-primary" href="https://draftdrill.vercel.app">Open live site</a>
-              <a class="link" href="https://github.com/adamafzainizam/draftdrill">How it works</a>
+              <a class="btn btn-primary" href="https://draftdrill.vercel.app">open live site</a>
+              <a class="link" href="https://github.com/adamafzainizam/draftdrill">how it works</a>
             </div>
-            <p class="note">The source is private because it holds every exercise's answer. The linked repo explains the design with diagrams.</p>
+            <p class="note">the source is private because it holds every exercise's answer. the linked repo explains the design with diagrams.</p>
           </div>
         </article>
 
         <div class="pair">
-          <article class="reveal">
-            <div class="frame">
-              <img class="shot" src="/assets/site/campus-marketplace.png" width="1440" height="960" loading="lazy" alt="Campus Marketplace: a board of secondhand listings for sale, rent and service, in dark mode.">
+          <article class="card reveal">
+            <div class="win">
+              <div class="win-bar"><i></i><i></i><i></i><span>campus_marketplace</span></div>
+              <div class="win-body">
+                <img class="shot" src="/assets/site/campus-marketplace.png" width="1440" height="960" loading="lazy" alt="Campus Marketplace: a board of secondhand listings for sale, rent and service, in dark mode.">
+              </div>
             </div>
             <h3>Campus Marketplace</h3>
-            <p class="body">A buy, sell and rent board for GMI students and staff. Google sign-in restricted to campus accounts, photo uploads, realtime messaging and a moderation queue. The case study covers the four bugs that only appeared in production.</p>
+            <p class="body">a buy, sell and rent board for GMI students and staff. google sign-in locked to campus accounts, photo uploads, live messaging and a moderation queue. the case study covers the bugs that only showed up in production.</p>
             <p class="stack-line">Next.js 16, Prisma, Neon, Auth.js, Cloudflare R2, Ably</p>
             <div class="links">
               <a class="link" href="https://gmicmp.vercel.app">Live</a>
@@ -264,12 +360,15 @@
             </div>
           </article>
 
-          <article class="reveal">
-            <div class="frame">
-              <img class="shot" src="/assets/site/ohrin.png" width="1090" height="760" loading="lazy" alt="Ohrin's listening equaliser: a frequency curve with numbered bands and controls.">
+          <article class="card reveal">
+            <div class="win">
+              <div class="win-bar"><i></i><i></i><i></i><span>ohrin_eq</span></div>
+              <div class="win-body">
+                <img class="shot" src="/assets/site/ohrin.png" width="1090" height="760" loading="lazy" alt="Ohrin's listening equaliser: a frequency curve with numbered bands and controls.">
+              </div>
             </div>
             <h3>Ohrin</h3>
-            <p class="body">A local Python and ML tool for guitarists and producers who learn by ear. Loop and slow a passage, see what changes, and get cautious instrument, pulse and chord candidates. It ships with a model card stating what has and hasn't been measured.</p>
+            <p class="body">a local python and ml tool for guitarists and producers who learn by ear. loop and slow a passage, see what changes, and get cautious instrument, pulse and chord candidates. it ships with a model card that says what has and hasn't been measured.</p>
             <p class="stack-line">Python, PyTorch, FFmpeg</p>
             <div class="links">
               <a class="link" href="https://github.com/adamafzainizam/Ohrin">Code</a>
@@ -279,65 +378,176 @@
       </div>
     </section>
 
-    <section id="writing" class="rule-top">
+    <section id="writing">
       <div class="wrap">
-        <h2 class="section-title reveal">Writing</h2>
-        <div class="post reveal">
-          <a class="title" href="/2026/08/25/vibe-coded-vs-traditional-code.html">I Compared 46 Pairs of Vibe-Coded and Traditional Repos. I Couldn't Tell Them Apart.</a>
-          <time datetime="2026-08-25">25 August 2026</time>
-          <p class="body">A pilot study of AI-assisted and traditionally written repositories, matched by size, age and popularity. It found no significant difference, and the sample is small, so read it as a first look.</p>
+        <div class="split">
+          <div>
+          <div class="section-head reveal">
+            <p class="tag"><b>02</b> / writing</p>
+            <h2 class="chrome">writing</h2>
+          </div>
+          <div class="post reveal">
+            <a class="title" href="/2026/08/25/vibe-coded-vs-traditional-code.html">I Compared 46 Pairs of Vibe-Coded and Traditional Repos. I Couldn't Tell Them Apart.</a>
+            <time datetime="2026-08-25">25 august 2026</time>
+            <p class="body">a pilot study of ai-assisted and traditionally written repos, matched by size, age and popularity. it found no significant difference, and the sample is small, so read it as a first look.</p>
+          </div>
+          </div>
+          <div class="sig sig-s2a sig-writing reveal" aria-hidden="true"></div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="rule-top">
+    <section id="about">
       <div class="wrap">
-        <h2 class="section-title reveal">About</h2>
+        <div class="section-head reveal">
+          <p class="tag"><b>03</b> / about</p>
+          <h2 class="chrome">about</h2>
+        </div>
         <div class="about">
-          <div class="about-copy body reveal">
-            <p>I'm a final-year Diploma in Software Engineering student at GMI in Malaysia.</p>
-            <p>I like projects where being wrong has a cost: a drawing marked incorrectly, a message sent to the wrong person, a model claiming more than it was measured on. So I test the risky parts, keep a log of the decisions, and say plainly what I haven't verified.</p>
+          <div class="about-copy reveal">
+            <p>i'm a final-year diploma in software engineering student at GMI, in malaysia.</p>
+            <p class="body">i like projects where being wrong costs something: a drawing marked incorrectly, a message sent to the wrong person, a model claiming more than it was measured on. so i test the risky bits, keep a log of my decisions, and say plainly what i haven't checked.</p>
+            <div class="about-more">
+              <p class="body">outside of code, i train mma, mostly bjj and kickboxing.</p>
+              <p class="body">i used to produce music in my bedroom, and i took technical drawing at SMK, which is probably why draftdrill ended up being about it.</p>
+              <p class="body">what i'm most into is ai. i want to study it at degree level and build my career around it.</p>
+            </div>
           </div>
           <dl class="stack reveal">
-            <div><dt>Web</dt><dd>TypeScript, Next.js, React, Tailwind CSS, Prisma, Auth.js</dd></div>
-            <div><dt>Data and infrastructure</dt><dd>PostgreSQL (Neon), Cloudflare R2, Ably, Vercel, Firebase</dd></div>
-            <div><dt>Also</dt><dd>Python, Java (Android), Git and GitHub Actions</dd></div>
+            <div><dt>web</dt><dd>TypeScript, Next.js, React, Tailwind CSS, Prisma, Auth.js</dd></div>
+            <div><dt>data + infra</dt><dd>PostgreSQL (Neon), Cloudflare R2, Ably, Vercel, Firebase</dd></div>
+            <div><dt>also</dt><dd>Python, Java (Android), Git and GitHub Actions</dd></div>
           </dl>
+          <div class="sig sig-s3a sig-about reveal" aria-hidden="true"></div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="rule-top">
-      <div class="wrap contact reveal">
-        <h2>Get in touch</h2>
-        <p class="body">I'm open to collaborating on projects. If you're building something and could use another pair of hands, send me a message.</p>
-        <a class="email link" href="mailto:m.adamafzainizam@gmail.com">m.adamafzainizam@gmail.com</a>
-        <div class="contact-links">
-          <a class="link" href="https://www.linkedin.com/in/adam-afzainizam/">LinkedIn</a>
-          <a class="link" href="https://github.com/adamafzainizam">GitHub</a>
+    <div class="wrap gap-row"><div class="sig sig-s2r sig-gap reveal" aria-hidden="true"></div></div>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-grid reveal">
+          <div class="contact">
+            <p class="tag"><b>04</b> / contact</p>
+            <h2 class="chrome">get in touch</h2>
+            <p class="body">i'm open to collaborating on projects. if you're building something and could use another pair of hands, send me a message.</p>
+            <a class="email chrome" href="mailto:m.adamafzainizam@gmail.com">m.adamafzainizam@gmail.com</a>
+            <div class="contact-links">
+              <a class="link" href="https://www.linkedin.com/in/adam-afzainizam/">LinkedIn</a>
+              <a class="link" href="https://github.com/adamafzainizam">GitHub</a>
+            </div>
+          </div>
+          <div class="sig sig-s2l sig-contact" aria-hidden="true"></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">&copy; 2026 Adam Afzainizam</div>
+    <div class="wrap">
+      <span>&copy; 2026 Adam Afzainizam</span>
+    </div>
   </footer>
 
   <script>
     (function () {
-      var items = document.querySelectorAll(".reveal");
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* Scroll reveal. */
+      var items = document.querySelectorAll(".reveal");
       if (reduce || !("IntersectionObserver" in window)) {
         items.forEach(function (el) { el.classList.add("in"); });
-        return;
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); }
+          });
+        }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
+        items.forEach(function (el) { io.observe(el); });
       }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); }
-        });
-      }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
-      items.forEach(function (el) { io.observe(el); });
+
+
+      /* Braille field: random 2x4 dot cells, drifting with scroll, dots swell and brighten toward the cursor. */
+      (function () {
+        var cv = document.getElementById("field");
+        if (!cv || !cv.getContext) return;
+        var ctx = cv.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var W = 0, H = 0, sy = window.scrollY, mx = -9999, my = -9999, tx = -9999, ty = -9999;
+        var CW = 16, CH = 28, DX = 7, DY = 7, COLS = 12, ROWS = 8, TW = CW * COLS, TH = CH * ROWS;
+        var seed = 7, dots = [];
+        function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+        for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) for (var i = 0; i < 2; i++) for (var j = 0; j < 4; j++) {
+          if (rnd() < 0.38) dots.push(c * CW + i * DX + 3, r * CH + j * DY + 3);
+        }
+        function size() {
+          W = window.innerWidth; H = window.innerHeight;
+          cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        var R = 170, R2 = R * R;
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          var off = (sy * 0.55) % TH;
+          for (var oy = -TH + off; oy < H; oy += TH) {
+            for (var ox = 0; ox < W; ox += TW) {
+              for (var k = 0; k < dots.length; k += 2) {
+                var x = ox + dots[k], y = oy + dots[k + 1];
+                if (y < -6 || y > H + 6) continue;
+                var dx = x - mx, dy = y - my, d2 = dx * dx + dy * dy, s = 1.6, a = 0.26;
+                if (d2 < R2) { var f = 1 - Math.sqrt(d2) / R; f = f * f * (3 - 2 * f); s = 1.6 + f * 4.6; a = 0.26 + f * 0.7; }
+                ctx.fillStyle = a > 0.3 ? "rgba(" + Math.round(157 + (a - 0.26) * 110) + "," + Math.round(182 + (a - 0.26) * 80) + ",247," + a.toFixed(2) + ")" : "rgba(157,182,230,0.26)";
+                ctx.fillRect(x - s / 2, y - s / 2, s, s);
+              }
+            }
+          }
+        }
+        size(); draw();
+        window.addEventListener("resize", function () { size(); draw(); });
+        window.addEventListener("scroll", function () { sy = window.scrollY; if (reduce) draw(); }, { passive: true });
+        if (reduce) return;
+        window.addEventListener("pointermove", function (e) { tx = e.clientX; ty = e.clientY; if (mx < -999) { mx = tx; my = ty; } }, { passive: true });
+        window.addEventListener("pointerleave", function () { tx = ty = -9999; mx = my = -9999; });
+        (function loop() { mx += (tx - mx) * 0.18; my += (ty - my) * 0.18; draw(); requestAnimationFrame(loop); })();
+      })();
+
+      /* Local time in Malaysia. */
+      var clock = document.getElementById("clock");
+      function tick() {
+        try {
+          clock.textContent = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kuala_Lumpur", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date());
+        } catch (e) { clock.textContent = ""; }
+      }
+      if (clock) { tick(); setInterval(tick, 30000); }
+
+      /* Hero screenshot resolves from big pixels to sharp. */
+      var fig = document.querySelector("[data-pixel]");
+      if (!fig || reduce) return;
+      var img = fig.querySelector("img"), body = fig.querySelector(".win-body");
+      function run() {
+        var w = img.naturalWidth, h = img.naturalHeight;
+        if (!w) return;
+        var c = document.createElement("canvas");
+        c.width = w; c.height = h; c.className = "px"; c.setAttribute("aria-hidden", "true");
+        body.appendChild(c);
+        var ctx = c.getContext("2d"), tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
+        var t0 = performance.now(), dur = 1500, last = 0;
+        function frame(now) {
+          var p = Math.min(1, (now - t0) / dur);
+          if (p >= 1) { c.remove(); return; }
+          var size = Math.max(1, Math.round(40 * Math.pow(1 - p, 3)));
+          if (size !== last) {
+            last = size;
+            tmp.width = Math.max(1, Math.ceil(w / size)); tmp.height = Math.max(1, Math.ceil(h / size));
+            tctx.drawImage(img, 0, 0, tmp.width, tmp.height);
+            ctx.imageSmoothingEnabled = false;
+            ctx.clearRect(0, 0, w, h);
+            ctx.drawImage(tmp, 0, 0, tmp.width, tmp.height, 0, 0, tmp.width * size, tmp.height * size);
+          }
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+      if (img.complete) run(); else img.addEventListener("load", run);
     })();
   </script>
 </body>
