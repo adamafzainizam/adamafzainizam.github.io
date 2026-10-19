@@ -190,6 +190,8 @@
     .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; }
     .note { color: var(--ink-2); font-size: 0.875rem; letter-spacing: 0.01em; max-width: 52ch; }
 
+    .feature-flip { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); margin-top: 5rem; }
+    .feature-flip .feature-copy { order: -1; }
     .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 5rem); margin-top: 5rem; align-items: start; }
     .pair article { display: grid; gap: 1.25rem; justify-items: start; align-content: start; }
     .pair .win { width: 100%; }
@@ -203,6 +205,8 @@
     .card:hover .win-body::after { opacity: 0; }
     @media (max-width: 56rem) {
       .feature, .pair { grid-template-columns: 1fr; gap: 2.5rem; }
+      .feature-flip { margin-top: 3.5rem; }
+      .feature-flip .feature-copy { order: 0; }
       .pair { margin-top: 3.5rem; }
     }
 
@@ -339,6 +343,32 @@
               <a class="link" href="https://github.com/adamafzainizam/draftdrill">how it works</a>
             </div>
             <p class="note">the source is private because it holds every exercise's answer. the linked repo explains the design with diagrams.</p>
+          </div>
+        </article>
+
+        <article class="feature feature-flip card reveal">
+          <a href="https://nimana.web.app" aria-label="Open the NiMana site" tabindex="-1">
+            <div class="win">
+              <div class="win-bar"><i></i><i></i><i></i><span>nimana.web.app</span></div>
+              <div class="win-body">
+                <img src="/assets/site/nimana.jpg" width="1920" height="1080" loading="lazy" alt="NiMana showing a shopper that a box of Milo is 0.3 km away and in stock, on an Android phone.">
+              </div>
+            </div>
+          </a>
+          <div class="feature-copy">
+            <h3>NiMana</h3>
+            <p class="body">find out which shops near you actually have it. shop owners keep their stock up to date, shoppers search it by distance, and no shop shows up until an admin has approved it. it's my final-year team project: i led the team and was lead developer.</p>
+            <dl class="facts">
+              <div><dt>roles</dt><dd>3</dd></div>
+              <div><dt>clients</dt><dd>2</dd></div>
+              <div><dt>rule checks</dt><dd>50</dd></div>
+              <div><dt>test cases</dt><dd>116</dd></div>
+            </dl>
+            <div class="links">
+              <a class="btn btn-primary" href="https://nimana.web.app">visit the site</a>
+              <a class="link" href="https://github.com/adamafzainizam/NiMana">how it works</a>
+            </div>
+            <p class="note">android app in java on firebase, with a react web portal. the app isn't on google play and the source is private, so the linked repo explains it with diagrams and a promo video.</p>
           </div>
         </article>
 
