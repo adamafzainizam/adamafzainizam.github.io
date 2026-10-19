@@ -3,21 +3,341 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Adam Afzainizam</title>
+  <title>Adam Afzainizam | Software engineering student</title>
+  <meta name="description" content="Adam Afzainizam is a software engineering diploma student in Malaysia. Full-stack web apps with Next.js, TypeScript and Postgres, with the decisions written down.">
+  <link rel="canonical" href="https://adamafzainizam.github.io/">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Adam Afzainizam">
+  <meta property="og:description" content="Full-stack web apps, built to be correct. Software engineering diploma student in Malaysia.">
+  <meta property="og:url" content="https://adamafzainizam.github.io/">
+  <meta property="og:image" content="https://adamafzainizam.github.io/assets/site/draftdrill.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171a'/%3E%3Crect x='8' y='8' width='16' height='16' fill='none' stroke='%23f4f5f6' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preload" href="/assets/site/fonts/ibm-plex-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/site/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add("js");</script>
   <style>
-    body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 42rem; margin: 3rem auto; padding: 0 1.25rem; line-height: 1.6; color: #24292f; }
-    h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
-    .muted { color: #57606a; }
-    ul { padding-left: 1.2rem; }
-    a { color: #0969da; }
+    /* Fonts: IBM Plex Sans and Plex Mono, SIL Open Font License (see assets/site/fonts/OFL.txt). */
+    @font-face { font-family: "Plex Sans"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plex Sans"; font-weight: 600; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plex Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plex Mono"; font-weight: 500; font-style: normal; font-display: swap; src: url("/assets/site/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+
+    /* One palette, one accent, one corner rule (square). Light and dark follow the system. */
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f5f6;
+      --surface: #ffffff;
+      --ink: #15171a;
+      --ink-2: #454b53;
+      --line: #d5d9de;
+      --accent: #1d4ed8;
+      --on-accent: #ffffff;
+      --chrome: rgb(244 245 246 / 0.78);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --sans: "Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101214;
+        --surface: #16191c;
+        --ink: #eceef0;
+        --ink-2: #a6acb4;
+        --line: #2b3035;
+        --accent: #8fb0ff;
+        --on-accent: #0b0d10;
+        --chrome: rgb(16 18 20 / 0.78);
+      }
+    }
+    @media (prefers-contrast: more) {
+      :root { --line: var(--ink-2); }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 1rem/1.6 var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .wrap { width: 100%; max-width: 70rem; margin: 0 auto; padding: 0 1.5rem; }
+    @media (max-width: 40rem) { .wrap { padding: 0 1rem; } }
+
+    h1, h2, h3 { font-family: var(--sans); font-weight: 600; margin: 0; }
+    h1 { font-size: clamp(2.25rem, 4.6vw, 3.5rem); line-height: 1.04; letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.1; letter-spacing: -0.02em; }
+    h3 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.012em; }
+    p { margin: 0; }
+    .lede { color: var(--ink-2); font-size: 1.125rem; line-height: 1.55; max-width: 36ch; }
+    .body { color: var(--ink-2); max-width: 62ch; }
+
+    /* Header: translucent layer over the content, one line at every width. */
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--chrome);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid var(--line);
+    }
+    @media (prefers-reduced-transparency: reduce) {
+      .site-header { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+    }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
+    .brand { font-weight: 600; letter-spacing: -0.01em; text-decoration: none; }
+    .nav { display: flex; align-items: center; gap: 1.75rem; }
+    .nav a { text-decoration: none; color: var(--ink-2); font-size: 0.9375rem; transition: color 0.2s var(--ease); }
+    .nav a:hover { color: var(--ink); }
+    .nav .nav-cta { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+    @media (max-width: 40rem) { .nav a:not(.nav-cta) { display: none; } }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 2.75rem; padding: 0 1.375rem;
+      font: 600 0.9375rem/1 var(--sans); white-space: nowrap; text-decoration: none;
+      border: 1px solid var(--ink); border-radius: 0; cursor: pointer;
+      transition: transform 0.12s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease);
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-quiet { background: transparent; color: var(--ink); }
+    .btn-quiet:hover { background: var(--ink); color: var(--bg); }
+
+    .link { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.3em; transition: text-underline-offset 0.2s var(--ease); }
+    .link:hover { text-underline-offset: 0.45em; }
+
+    /* Hero */
+    .hero { padding: 4.5rem 0 5.5rem; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3.5rem; align-items: center; }
+    .hero-copy { display: grid; gap: 1.5rem; justify-items: start; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .frame { border: 1px solid var(--line); background: var(--surface); }
+    figure { margin: 0; }
+    figcaption { margin-top: 0.75rem; color: var(--ink-2); font-size: 0.875rem; max-width: 56ch; }
+    @media (max-width: 56rem) {
+      .hero { padding: 2.5rem 0 3.5rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    /* Sections */
+    section { padding: 5.5rem 0; }
+    @media (max-width: 40rem) { section { padding: 3.5rem 0; } }
+    .section-title { margin-bottom: 2.5rem; }
+    .rule-top { border-top: 1px solid var(--line); }
+
+    /* Work: one feature across the full width, then an asymmetric pair. */
+    .feature { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: center; }
+    .feature-copy { display: grid; gap: 1.25rem; justify-items: start; }
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2rem; margin: 0.5rem 0; padding: 1.25rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); width: 100%; }
+    .facts dt { color: var(--ink-2); font-size: 0.875rem; }
+    .facts dd { margin: 0; font: 500 1.75rem/1.1 var(--mono); letter-spacing: -0.02em; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; }
+    .note { color: var(--ink-2); font-size: 0.875rem; max-width: 52ch; }
+
+    .pair { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; margin-top: 5rem; align-items: start; }
+    .pair article { display: grid; gap: 1.25rem; justify-items: start; align-content: start; }
+    .pair .frame { width: 100%; }
+    .pair .shot { aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; width: 100%; }
+    .stack-line { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-2); line-height: 1.7; }
+    @media (max-width: 56rem) {
+      .feature, .pair { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pair { margin-top: 3.5rem; }
+    }
+
+    /* Writing */
+    .post { display: grid; gap: 0.75rem; max-width: 46rem; }
+    .post a.title { font-size: 1.375rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.012em; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+    .post time { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-2); }
+
+    /* About */
+    .about { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 4rem; align-items: start; }
+    .about-copy { display: grid; gap: 1.25rem; }
+    .stack { display: grid; gap: 1.5rem; margin: 0; }
+    .stack div { display: grid; gap: 0.375rem; }
+    .stack dt { font-weight: 600; }
+    .stack dd { margin: 0; color: var(--ink-2); }
+    .stack div + div { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    @media (max-width: 56rem) { .about { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* Contact */
+    .contact { display: grid; gap: 1.5rem; justify-items: start; }
+    .email { font-size: clamp(1.375rem, 3.4vw, 2.25rem); font-weight: 600; letter-spacing: -0.02em; word-break: break-word; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+
+    footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 0.875rem; }
+
+    /* Motion: entry on the hero for hierarchy, reveal on scroll for reading order. */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy > *, .hero figure { opacity: 0; transform: translateY(14px); animation: rise 0.8s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+      .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+      .js .reveal.in { opacity: 1; transform: none; }
+      .frame img { transition: transform 0.6s var(--ease); }
+      a:hover > .frame img, .frame:hover img { transform: scale(1.012); }
+      .frame { overflow: hidden; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
-  <h1>Adam Afzainizam</h1>
-  <p class="muted">Software engineering notes, empirical studies, and projects.</p>
-  <h2>Posts</h2>
-  <ul>
-    <li><a href="/2026/08/25/vibe-coded-vs-traditional-code.html">I Compared 46 Pairs of Vibe-Coded and Traditional Repos. I Couldn't Tell Them Apart.</a> <span class="muted">— Aug 25, 2026</span></li>
-  </ul>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">Adam Afzainizam</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#writing">Writing</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 style="--i:0">Web apps, built to be correct.</h1>
+          <p class="lede" style="--i:1">Software engineering diploma student in Malaysia. I build apps with real sign-in, databases and realtime, and I write down why.</p>
+          <div class="hero-actions" style="--i:2">
+            <a class="btn btn-primary" href="#work">See my work</a>
+            <a class="btn btn-quiet" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <figure style="--i:3">
+          <div class="frame">
+            <img src="/assets/site/draftdrill.png" width="1280" height="720" alt="draftdrill telling a student that their drawing's views are placed in third-angle projection when the exercise asks for first-angle.">
+          </div>
+          <figcaption>draftdrill marking a technical drawing and naming the mistake.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section id="work" class="rule-top">
+      <div class="wrap">
+        <h2 class="section-title reveal">Selected work</h2>
+
+        <article class="feature reveal">
+          <a href="https://draftdrill.vercel.app" aria-label="Open draftdrill, live site" tabindex="-1">
+            <div class="frame">
+              <img src="/assets/site/draftdrill-exercise.png" width="1280" height="800" loading="lazy" alt="A draftdrill exercise: an L-shaped block given as three views, with an isometric grid to draw it on.">
+            </div>
+          </a>
+          <div class="feature-copy">
+            <h3>draftdrill</h3>
+            <p class="body">Practise technical drawing and get marked. You draw on a snapping grid and it tells you exactly which line is wrong, or that your views are right but laid out in the wrong projection convention.</p>
+            <dl class="facts">
+              <div><dt>Topics</dt><dd>5</dd></div>
+              <div><dt>Exercises</dt><dd>50</dd></div>
+              <div><dt>Languages</dt><dd>EN, BM</dd></div>
+              <div><dt>Tests</dt><dd>691</dd></div>
+            </dl>
+            <div class="links">
+              <a class="btn btn-primary" href="https://draftdrill.vercel.app">Open live site</a>
+              <a class="link" href="https://github.com/adamafzainizam/draftdrill">How it works</a>
+            </div>
+            <p class="note">The source is private because it holds every exercise's answer. The linked repo explains the design with diagrams.</p>
+          </div>
+        </article>
+
+        <div class="pair">
+          <article class="reveal">
+            <div class="frame">
+              <img class="shot" src="/assets/site/campus-marketplace.png" width="1440" height="960" loading="lazy" alt="Campus Marketplace: a board of secondhand listings for sale, rent and service, in dark mode.">
+            </div>
+            <h3>Campus Marketplace</h3>
+            <p class="body">A buy, sell and rent board for GMI students and staff. Google sign-in restricted to campus accounts, photo uploads, realtime messaging and a moderation queue. The case study covers the four bugs that only appeared in production.</p>
+            <p class="stack-line">Next.js 16, Prisma, Neon, Auth.js, Cloudflare R2, Ably</p>
+            <div class="links">
+              <a class="link" href="https://gmicmp.vercel.app">Live</a>
+              <a class="link" href="https://github.com/adamafzainizam/campus-marketplace">Code</a>
+              <a class="link" href="https://github.com/adamafzainizam/campus-marketplace/blob/main/docs/case-study.md">Case study</a>
+            </div>
+          </article>
+
+          <article class="reveal">
+            <div class="frame">
+              <img class="shot" src="/assets/site/ohrin.png" width="1090" height="760" loading="lazy" alt="Ohrin's listening equaliser: a frequency curve with numbered bands and controls.">
+            </div>
+            <h3>Ohrin</h3>
+            <p class="body">A local Python and ML tool for guitarists and producers who learn by ear. Loop and slow a passage, see what changes, and get cautious instrument, pulse and chord candidates. It ships with a model card stating what has and hasn't been measured.</p>
+            <p class="stack-line">Python, PyTorch, FFmpeg</p>
+            <div class="links">
+              <a class="link" href="https://github.com/adamafzainizam/Ohrin">Code</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing" class="rule-top">
+      <div class="wrap">
+        <h2 class="section-title reveal">Writing</h2>
+        <div class="post reveal">
+          <a class="title" href="/2026/08/25/vibe-coded-vs-traditional-code.html">I Compared 46 Pairs of Vibe-Coded and Traditional Repos. I Couldn't Tell Them Apart.</a>
+          <time datetime="2026-08-25">25 August 2026</time>
+          <p class="body">A pilot study of AI-assisted and traditionally written repositories, matched by size, age and popularity. It found no significant difference, and the sample is small, so read it as a first look.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="rule-top">
+      <div class="wrap">
+        <h2 class="section-title reveal">About</h2>
+        <div class="about">
+          <div class="about-copy body reveal">
+            <p>I'm a final-year Diploma in Software Engineering student at GMI in Malaysia.</p>
+            <p>I like projects where being wrong has a cost: a drawing marked incorrectly, a message sent to the wrong person, a model claiming more than it was measured on. So I test the risky parts, keep a log of the decisions, and say plainly what I haven't verified.</p>
+          </div>
+          <dl class="stack reveal">
+            <div><dt>Web</dt><dd>TypeScript, Next.js, React, Tailwind CSS, Prisma, Auth.js</dd></div>
+            <div><dt>Data and infrastructure</dt><dd>PostgreSQL (Neon), Cloudflare R2, Ably, Vercel, Firebase</dd></div>
+            <div><dt>Also</dt><dd>Python, Java (Android), Git and GitHub Actions</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="rule-top">
+      <div class="wrap contact reveal">
+        <h2>Get in touch</h2>
+        <p class="body">I'm open to collaborating on projects. If you're building something and could use another pair of hands, send me a message.</p>
+        <a class="email link" href="mailto:m.adamafzainizam@gmail.com">m.adamafzainizam@gmail.com</a>
+        <div class="contact-links">
+          <a class="link" href="https://www.linkedin.com/in/adam-afzainizam/">LinkedIn</a>
+          <a class="link" href="https://github.com/adamafzainizam">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Adam Afzainizam</div>
+  </footer>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll(".reveal");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || !("IntersectionObserver" in window)) {
+        items.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); }
+        });
+      }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
